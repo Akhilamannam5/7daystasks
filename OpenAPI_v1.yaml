@@ -1,0 +1,68 @@
+openapi: 3.0.0
+
+info:
+  title: PlaceMux API
+  version: 1.0.0
+  description: Backend API for PlaceMux Platform
+
+servers:
+  - url: http://localhost:5000
+
+paths:
+  /auth/register:
+    post:
+      summary: Register a new user
+
+  /auth/login:
+    post:
+      summary: Login user
+
+  /auth/logout:
+    post:
+      summary: Logout user
+
+  /auth/me:
+    get:
+      summary: Get current logged in user
+
+  /profile:
+    get:
+      summary: Get user profile
+    put:
+      summary: Update user profile
+    delete:
+      summary: Delete user profile
+
+  /assessment-session/start:
+    post:
+      summary: Start assessment session
+
+  /assessment-session/submit:
+    post:
+      summary: Submit assessment session
+
+  /assessment-session/{id}:
+    get:
+      summary: Get assessment session details
+
+  /inference/evaluate:
+    post:
+      summary: Evaluate assessment answers
+
+  /inference/predict:
+    post:
+      summary: Predict student performance
+
+  /inference/status:
+    get:
+      summary: Check AI inference service
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []
